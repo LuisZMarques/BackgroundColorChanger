@@ -4,21 +4,14 @@ const color = document.querySelector(".color");
 
 btn.addEventListener("click", function(){
     var randomColor = getHexValue();
-    console.log("randomcolor:" + randomColor);
+    document.body.style.backgroundColor = randomColor;
+    color.textContent = randomColor;
 })
 
 function getHexValue(){
-    var hexValue;;
-    var singleValue;
+    var hexValue = "#";
     for(i=0 ; i<=5 ; i++){
-        singleValue = hex[Math.floor(Math.random()*(hex.length-1))];
-        console.log("SingleVFunction:" + singleValue);
-        if(i===0){
-           hexValue = singleValue;
-        }else{
-            hexValue = hexValue.toString() + singleValue.toString();
-            console.log("HexFunctionFORLOOP:" + hexValue);
-        }
+        hexValue = hexValue.toString() + hex[Math.floor(Math.random()*(hex.length-1))];
     }
     return hexValue;
 }
